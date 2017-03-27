@@ -1,0 +1,25 @@
+*.class
+*.jar
+*.war
+.metadata
+.metadata/
+
+# Eclipse
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+.jar
+.war
+.class

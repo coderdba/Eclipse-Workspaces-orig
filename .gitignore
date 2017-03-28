@@ -3,6 +3,8 @@
 *.war
 .metadata
 .metadata/
+.recommenders/
+.recommenders
 
 # Eclipse
 .project

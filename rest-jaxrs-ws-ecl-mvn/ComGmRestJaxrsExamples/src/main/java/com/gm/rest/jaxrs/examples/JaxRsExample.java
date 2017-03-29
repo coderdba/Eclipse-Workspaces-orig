@@ -1,5 +1,7 @@
 package com.gm.rest.jaxrs.examples;
 
+// based on http://java.boot.by/ocewsd6-guide/ch02.html
+
 import java.io.*;
 import java.net.URI;
 
@@ -107,6 +109,22 @@ public class JaxRsExample {
 		URI newUri = ub.path("addedThis").build();
 		
 		return ("In get8 - showing URI of this request with appended path - " + newUri.toASCIIString());
-
+	}	
+	
+	@Path("/get9")
+	@GET
+	@Produces("text/plain")
+	public String get9() {
+		// extracts query-params from the URL and displays the keys (not values)
+	    StringBuilder buf = new StringBuilder();
+	    
+	    buf.append("Parameter Names: \n");
+	    
+	    for (String param: uriInfo.getQueryParameters().keySet()) {
+	        buf.append(param);
+	        buf.append("\n");
+	    }
+	    
+	    return buf.toString();
 	}	
 }

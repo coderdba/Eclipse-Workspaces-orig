@@ -1,6 +1,7 @@
 package com.gm.rest.jaxrs.examples;
 
 import java.io.*;
+import java.net.URI;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,6 +14,8 @@ import javax.ws.rs.core.Response;
 
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+
+import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Response;
 
@@ -96,4 +99,14 @@ public class JaxRsExample {
 		return ("In get7 - showing URI of this request using UriInfo - " + uriInfo.getAbsolutePath().toASCIIString());
 	}
 	
+	@Path("/get8")
+	@GET
+	public String get8() {
+		// builds a path adding relative uri to the method-URI's absolute path
+		UriBuilder ub = uriInfo.getAbsolutePathBuilder();
+		URI newUri = ub.path("addedThis").build();
+		
+		return ("In get8 - showing URI of this request with appended path - " + newUri.toASCIIString());
+
+	}	
 }

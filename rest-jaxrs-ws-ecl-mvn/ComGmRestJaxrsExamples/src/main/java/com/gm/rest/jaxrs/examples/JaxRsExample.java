@@ -4,6 +4,7 @@ package com.gm.rest.jaxrs.examples;
 
 import java.io.*;
 import java.net.URI;
+import java.util.Date;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,11 +13,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Response;
 
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Response;
@@ -127,4 +126,21 @@ public class JaxRsExample {
 	    
 	    return buf.toString();
 	}	
+	
+    @GET
+    @Path("/get10/{id}")
+    public Response get10(@PathParam("id") int id) {
+    	
+    	Date expirationDate =  new Date(System.currentTimeMillis() + 3000); // 3 secs
+    	//return ("In Get10 - input PathParam is " + id);
+    	
+    	
+    	// set an expiration in the header of the response     
+        return Response.status(Response.Status.OK)
+                .entity("Id: " + id )
+                .expires(expirationDate)
+                .build();
+               
+        
+    }
 }

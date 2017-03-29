@@ -1,5 +1,7 @@
 package com.gm.rest.jaxrs.examples;
 
+import java.io.*;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -53,5 +55,22 @@ public class JaxRsExample {
 		response.setHeader("Refresh", "300");
 	
         return ("<b>In Get4 - Http response with header " + id + " - " + name);
+	}
+	
+	@GET
+	@Path("/get5")
+	@Produces(MediaType.TEXT_HTML)
+	// Usage /get4?id=10&name=somename
+	public void get5(@Context HttpServletResponse response, @QueryParam("id") int id, @QueryParam("name") String name) 
+	throws Exception {
+			
+		response.setContentType("text/html");
+		response.setHeader("Refresh", "300");
+		
+		PrintWriter responseBody = response.getWriter();
+		responseBody.print ("<b>In Get5 - Http response with header and body " + id + " - " + name);
+		responseBody.close();
+	
+        //return ("<b>In Get5 - Http response with header and body " + id + " - " + name);
 	}	
 }

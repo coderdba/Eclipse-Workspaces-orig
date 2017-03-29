@@ -42,26 +42,16 @@ public class JaxRsExample {
 		return ("In Get3 - input QueryParam is " + id + "-" + name);
 	}
 	
+	
 	@GET
 	@Path("/get4")
 	@Produces(MediaType.TEXT_HTML)
-	// Usage /get3?id=10&name=somename
+	// Usage /get4?id=10&name=somename
 	public String get4(@Context HttpServletResponse response, @QueryParam("id") int id, @QueryParam("name") String name) {
 			
 		response.setContentType("text/html");
 		response.setHeader("Refresh", "300");
-        //response.setHeader("content-type","html");
-        try {
-        response.getWriter().print("<b>In Get4 - HTTP Response with header " + id + " - " + name);
-        }
-        catch (Exception e) {
-        	
-         e.printStackTrace();
-        }		
-        // TBD TBD TBD TBD - THIS METHOD IS NOT WORKING PROPERLY
-        //System.out.println(response.getContentType());
-        //return response.toString();
-        return response.getHeader("Refresh");
-        //return response;
-	}
+	
+        return ("<b>In Get4 - Http response with header " + id + " - " + name);
+	}	
 }

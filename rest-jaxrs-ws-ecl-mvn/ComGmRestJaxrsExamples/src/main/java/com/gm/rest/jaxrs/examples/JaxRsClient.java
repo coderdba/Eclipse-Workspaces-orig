@@ -36,7 +36,7 @@ public class JaxRsClient {
 	// get2
 	// slightly different construct of the uri
 	WebTarget target2 = client.target("http://localhost:8080/ComGmRestJaxrsExamples/rest/jaxrsexample");
-	WebTarget target2get2 = target2.path("get2").path("101");
+	WebTarget target2get2 = target2.path("get2").path("102");
 	
 	// Invoke
 	invocationBuilder = target2get2.request("text/plain").header("my-header", "gm");
@@ -49,6 +49,21 @@ public class JaxRsClient {
 	System.out.println ("Response body - " + response.readEntity(String.class));
 	System.out.println ("----------------------------");
 	
+	// get3
+	// slightly different construct of the uri
+	WebTarget target3 = client.target("http://localhost:8080/ComGmRestJaxrsExamples/rest/jaxrsexample");
+	WebTarget target3get3 = target2.path("get3").queryParam("id", "102");
+	
+	// Invoke
+	invocationBuilder = target3get3.request("text/plain").header("my-header", "gm");
+	invocationBuilder.header("requestor-name", "xyz");
+    response = invocationBuilder.get();
+	
+	System.out.println ("Response from - " + target3get3.getUri());
+	System.out.println ("Return code   - " + response.getStatus());
+	System.out.println ("Header        - " + response.getStringHeaders().toString());
+	System.out.println ("Response body - " + response.readEntity(String.class));
+	System.out.println ("----------------------------");
 	}
 }
 

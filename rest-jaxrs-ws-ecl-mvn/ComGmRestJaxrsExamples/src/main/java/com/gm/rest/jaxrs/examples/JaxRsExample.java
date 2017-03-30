@@ -134,13 +134,10 @@ public class JaxRsExample {
     	Date expirationDate =  new Date(System.currentTimeMillis() + 3000); // 3 secs
     	//return ("In Get10 - input PathParam is " + id);
     	
-    	
     	// set an expiration in the header of the response     
         return Response.status(Response.Status.OK)
                 .entity("Id: " + id )
                 .expires(expirationDate)
-                .build();
-               
-        
+                .build();                    
     }
 }

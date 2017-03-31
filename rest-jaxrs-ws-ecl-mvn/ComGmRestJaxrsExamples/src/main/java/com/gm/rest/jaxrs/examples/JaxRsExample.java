@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.BeanParam;
 
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -140,4 +141,21 @@ public class JaxRsExample {
                 .expires(expirationDate)
                 .build();                    
     }
+    
+    @GET
+    @Path("/get11")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String get11(@BeanParam ParamBean beanParam, String entity) {
+    	System.out.println ("In get11 - entity " + entity + " - pathParam - " + beanParam.getPathParam());
+    	return ("In get11 - " + beanParam.getPathParam() +
+				" THIS IS NOT WORKING YET - STILL SHOWING PATHPARAM AS NULL");
+    }
+    
+    /*
+    @GET
+    @Path("/get12")
+    public Viewable get12() {
+    	return new Viewable ("index.html", "something in it");
+    }
+    */
 }

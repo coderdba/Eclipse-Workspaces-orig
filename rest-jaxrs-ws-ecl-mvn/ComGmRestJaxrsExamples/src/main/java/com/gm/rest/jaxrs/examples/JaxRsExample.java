@@ -143,12 +143,11 @@ public class JaxRsExample {
     }
     
     @GET
-    @Path("/get11")
+    @Path("/get11/{pathparam1}")
     @Produces(MediaType.TEXT_PLAIN)
     public String get11(@BeanParam ParamBean beanParam, String entity) {
-    	System.out.println ("In get11 - entity " + entity + " - pathParam - " + beanParam.getPathParam());
-    	return ("In get11 - " + beanParam.getPathParam() +
-				" THIS IS NOT WORKING YET - STILL SHOWING PATHPARAM AS NULL");
+    	//System.out.println ("In get11 - pathParam - " + beanParam.getPathParam());
+    	return ("In get11 - " + beanParam.getPathParam() );
     }
     
     /*

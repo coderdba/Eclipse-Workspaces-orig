@@ -5,13 +5,19 @@ import javax.ws.rs.PathParam;
 
 public class ParamBean {
 	
-	//@PathParam ("pathparam1")
-	@PathParam (value="pathparam1")
+	@PathParam ("pathparam1")
+	//@PathParam (value="pathparam1")
 	private String pathParam;
 	
+	public void setPathParam() {
+		this.pathParam = "hardcoded-path-param";
+	}
+	
+	public void setPathParam(String pathParamValue) {
+		this.pathParam = pathParamValue;
+	}
+	
 	public String getPathParam() {
-		//System.out.println("In ParamBean - getPathParam() - pathParam is - " + pathParam + 
-								//" THIS IS NOT WORKING YET - STILL SHOWING PATHPARAM AS NULL");
 		return pathParam;
 	}
 }

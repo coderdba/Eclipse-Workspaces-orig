@@ -3,8 +3,9 @@
 *.war
 .metadata
 .metadata/
-.recommenders/
 .recommenders
+.recommenders/
+.recommenders/*
 
 # Eclipse
 .project

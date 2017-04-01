@@ -149,9 +149,8 @@ public class JaxRsExample {
 		// beanParam.getPathParam());
 		return ("In get11 - " + beanParam.getPathParam());
 	}
-
 	
-	@POST
+	@POST // FormParam does not work for GET
 	@Path("/post1")
 	//@Consumes("application/x­www­form­urlencoded") // not needed
 	@Produces(MediaType.TEXT_HTML)
@@ -160,6 +159,12 @@ public class JaxRsExample {
 		return ("Your name is - " + firstName + " " + lastName);
 	}
 	
+	@POST // FormParam based bean - does not work for GET
+	@Path("/post2")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String get12(@BeanParam FormParamBean beanParam) {
+		return ("In post2 - your name is - " + beanParam.getFirstName() + " " + beanParam.getLastName());
+	}
 	
 	/*
 	 * @GET

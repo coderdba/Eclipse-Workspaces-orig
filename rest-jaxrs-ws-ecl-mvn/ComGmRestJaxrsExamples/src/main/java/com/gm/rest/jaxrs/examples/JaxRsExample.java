@@ -162,8 +162,17 @@ public class JaxRsExample {
 	@POST // FormParam based bean - does not work for GET
 	@Path("/post2")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String get12(@BeanParam FormParamBean beanParam) {
+	public String post2(@BeanParam FormParamBean beanParam) {
 		return ("In post2 - your name is - " + beanParam.getFirstName() + " " + beanParam.getLastName());
+	}
+	
+	@POST // FormParam based bean - does not work for GET
+	@Path("/post3")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response post3(@BeanParam FormParamBean beanParam) {
+		
+		System.out.println("In post3 - your name is - " + beanParam.getFirstName() + " " + beanParam.getLastName());		
+		return Response.ok().status(200).entity(beanParam).build();
 	}
 	
 	/*

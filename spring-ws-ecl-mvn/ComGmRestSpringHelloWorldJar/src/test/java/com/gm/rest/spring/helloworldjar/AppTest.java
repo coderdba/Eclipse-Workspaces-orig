@@ -1,4 +1,4 @@
-package com.gm.spring.jarexamples;
+package com.gm.rest.spring.helloworldjar;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

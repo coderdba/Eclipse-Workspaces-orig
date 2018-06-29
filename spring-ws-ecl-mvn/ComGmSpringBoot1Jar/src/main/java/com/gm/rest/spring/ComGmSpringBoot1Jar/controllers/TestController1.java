@@ -39,8 +39,7 @@ public class TestController1 {
 	// set up http session - https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
 	HttpSession session = request.getSession();
 	session.setAttribute("user", "myselfTheUser");
-	//setting session to expiry in N sec
-	session.setMaxInactiveInterval(10); // or (30*60) for 30 min
+	session.setMaxInactiveInterval(10); // in sec, (30*60) for 30 min
 	  
 	// create cookies
     Cookie aCookie = new Cookie("aCookieName",myCookieName);

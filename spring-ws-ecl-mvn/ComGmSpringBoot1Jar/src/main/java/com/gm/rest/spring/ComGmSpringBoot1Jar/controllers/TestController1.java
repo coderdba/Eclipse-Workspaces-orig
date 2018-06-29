@@ -15,6 +15,9 @@ import java.net.URLEncoder;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+//utils
+import java.util.Date;
+
 @RestController
 public class TestController1 {
   
@@ -76,6 +79,31 @@ public class TestController1 {
     response.getWriter().close();
     
   }
+  
+  @GetMapping("/requestresponse")
+  void mycookie(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   
+	// set up http session - https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
+	HttpSession session = request.getSession();
+	session.setMaxInactiveInterval(10); // in sec, (30*60) for 30 min
+
+	Cookie[] requestCookies = request.getCookies();
+	
+   // RESPONSE
+   // content type
+   response.setContentType("text/html");
+  
+   // headers
+   response.setHeader("thisMyHeader1", "hey hey");
+   response.setHeader("thisMyHeader2", "hey hey hey");
+   
+   // body
+   Date date = new Date();
+   response.getWriter().write("Now Time is " + date);   		 
+   response.getWriter().flush();
+   response.getWriter().close();
+   
+ }
   
   // http://www.java2s.com/Code/Java/Servlets/Usecookietosavesessiondata.htm
   private static String generateSessionId() throws UnsupportedEncodingException {

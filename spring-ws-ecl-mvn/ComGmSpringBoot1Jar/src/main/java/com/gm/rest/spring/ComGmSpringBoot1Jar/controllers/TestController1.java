@@ -36,17 +36,11 @@ public class TestController1 {
   @GetMapping("/mycookie/{cookiename}")
    void mycookie(@PathVariable String cookiename, HttpServletRequest request, HttpServletResponse response) throws IOException {
     
-	// http session - https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
+	// set up http session - https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
 	HttpSession session = request.getSession();
 	session.setAttribute("user", "myselfTheUser");
 	//setting session to expiry in N sec
 	session.setMaxInactiveInterval(10); // or (30*60) for 30 min
-	
-	// more code from - https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
-	//Cookie userName = new Cookie("user", user);
-	//userName.setMaxAge(30*60);
-	//response.addCookie(userName);
-	//response.sendRedirect("LoginSuccess.jsp");
 	  
 	// create cookies
     Cookie aCookie = new Cookie("aCookieName",cookiename);

@@ -13,6 +13,7 @@ import java.net.URLEncoder;
 
 //exceptions
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 //utils
@@ -87,7 +88,7 @@ public class TestController1 {
 	HttpSession session = request.getSession();
 	session.setMaxInactiveInterval(10); // in sec, (30*60) for 30 min
 
-	Cookie[] requestCookies = request.getCookies();
+	Cookie[] requestCookies  = request.getCookies();
 	
    // RESPONSE
    // content type
@@ -99,11 +100,63 @@ public class TestController1 {
    
    // body
    Date date = new Date();
-   response.getWriter().write("Now Time is " + date);   		 
+   PrintWriter responseBody;
+   responseBody = response.getWriter();
+   responseBody.write("Now Time is " + date + "<br>");
+   
+   // response.getWriter().write("Now Time is " + date);   	
+   for (int i = 0; i < requestCookies.length; i++) {
+		String name = requestCookies[i].getName();
+		String value = requestCookies[i].getValue();
+		
+		responseBody.write("Request Cookie: " + name + ", Value: " + value + "<br>");
+		//System.out.println("cookie: " + name + ":" + value);
+   }  
    response.getWriter().flush();
    response.getWriter().close();
    
  }
+  
+  @GetMapping("/responsecookie")
+  void responsecookie(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   //https://www.tutorialspoint.com/servlets/servlets-cookies-handling.htm
+	
+	// set up http session - https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting
+	HttpSession session = request.getSession();
+	// dont set a timeout for session yet
+	//session.setMaxInactiveInterval(10); // in sec, (30*60) for 30 min
+	
+   // RESPONSE
+   // content type
+   response.setContentType("text/html");
+   
+   // body
+   Date date = new Date();
+   PrintWriter responseBody;
+   responseBody = response.getWriter();
+   responseBody.write("Now Time is for responsecookie - " + date + "<br>");
+   
+   // Create cookies for first and last names.      
+   //Cookie firstName = new Cookie("first_name", request.getParameter("first_name"));
+   //Cookie lastName = new Cookie("last_name", request.getParameter("last_name"));
+   Cookie firstName = new Cookie("first_name", "raja");
+   Cookie lastName = new Cookie("last_name", "ram");
+   
+   // Set expiry date after 24 Hrs for both the cookies.
+   //firstName.setMaxAge(60*60*24);
+   //lastName.setMaxAge(60*60*24);
+   firstName.setMaxAge(5);
+   lastName.setMaxAge(5);
+
+   // Add both the cookies in the response header.
+   response.addCookie( firstName );
+   response.addCookie( lastName );
+   
+   response.getWriter().flush();
+   response.getWriter().close();
+   
+ } 
+  
   
   // http://www.java2s.com/Code/Java/Servlets/Usecookietosavesessiondata.htm
   private static String generateSessionId() throws UnsupportedEncodingException {

@@ -53,8 +53,11 @@ public class ExampleTone1{
     sourceDL.start();
  
     for(int i=0; i<rate; i++){
+    	
       double angle = (i/rate)*Hertz*2.0*Math.PI;
-      buf[0]=(byte)(Math.sin(angle)*volume);
+      buf[0]=(byte)(Math.sin(angle)*volume); // sine wave
+      //buf[0]=(byte)(Math.sin(angle)*volume + i % 15); // sine wave+noise
+      
       sourceDL.write(buf,0,1);
     }
  

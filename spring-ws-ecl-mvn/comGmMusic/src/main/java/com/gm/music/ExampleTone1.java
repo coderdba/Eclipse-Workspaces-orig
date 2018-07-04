@@ -11,8 +11,23 @@ public class ExampleTone1{
   public static void main(String[] args){
  
     try {
+    	
         //ExampleTone1.createTone(262, 100);
-    	ExampleTone1.createTone(300, 100);
+    	//ExampleTone1.createTone(300, 100);
+    	//ExampleTone1.createTone(261, 100); // c4 
+    	//ExampleTone1.createTone(523, 100); // c5
+    	//ExampleTone1.createTone(1047, 100); // c6
+    	
+    	// mayamalavagaula
+    	ExampleTone1.createTone(261, 100); // c4 
+    	ExampleTone1.createTone(277, 100); // c#4
+    	ExampleTone1.createTone(329, 100); // e
+    	ExampleTone1.createTone(349, 100); // f
+    	ExampleTone1.createTone(392, 100); // g
+    	ExampleTone1.createTone(415, 100); // g#
+    	ExampleTone1.createTone(494, 100); // b
+    	ExampleTone1.createTone(523, 100); // c5
+    	
     } catch (LineUnavailableException lue) {
         System.out.println(lue);
     }

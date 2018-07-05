@@ -54,7 +54,7 @@ private static void createTone(int Hertz, int volume)
 	    throws LineUnavailableException {
 	    /** Exception is thrown when line cannot be opened */
 	 
-	    float rate = 44100;
+	    float rate=44100;
 	    byte[] buf;
 	    AudioFormat audioF;
 	 
@@ -67,7 +67,9 @@ private static void createTone(int Hertz, int volume)
 	    //sourceDL.open(audioF,44100/16);
 	    sourceDL.start();
 	 
-	    for(int i=0; i<rate; i++){
+	    float length=22050;
+	    
+	    for(int i=0; i<length; i++){
 	    	
 	      double angle = (i/rate)*Hertz*2.0*Math.PI;
 	      

@@ -9,7 +9,7 @@ public class Tone1Play {
 		
 		System.out.println(myTone.toString());
 		
-		myTone.playOneNote(100, 150);
+		//myTone.playOneNote(100, 150);
 		
 		 /*
 		 createTone(261, 100); // c4 sa 
@@ -23,7 +23,11 @@ public class Tone1Play {
 		 */
 		
 		int[] songLine1 = {261,277,329,349,392,415,494,523};
-		myTone.playNoteList(songLine1, 100);
+		//myTone.playNoteListOneSecond(songLine1, 100);
+		myTone.playNoteList(songLine1, 100, 0.5f);
+		
+		float[][] songLine2 = { {261f, 0.5f}, {277f, 0.5f}, {329f, 0.5f}, {349f, 0.5f} };
+		myTone.playNoteList(songLine2, 100);
 	}
 
 

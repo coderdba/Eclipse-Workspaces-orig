@@ -63,7 +63,8 @@ private static void createTone(int Hertz, int volume)
 	    
 	    SourceDataLine sourceDL = AudioSystem.getSourceDataLine(audioF);
 	    sourceDL = AudioSystem.getSourceDataLine(audioF);
-	    sourceDL.open(audioF);
+	    sourceDL.open(audioF); //orig
+	    //sourceDL.open(audioF,44100/16);
 	    sourceDL.start();
 	 
 	    for(int i=0; i<rate; i++){
@@ -104,6 +105,7 @@ private static void createTone(int Hertz, int volume)
 	      
 	      //sourceDL.write(buf,0,1); // orig
 	      sourceDL.write(buf,0,1);
+	     
 	    }
 	 
 	    sourceDL.drain();

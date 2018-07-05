@@ -17,7 +17,11 @@ public class Tone1 {
 		return "this is a " + toneName;
 	}
 
-	public void play(int Hertz, int volume) throws LineUnavailableException {
+	private void playOneNote (int Hertz, int volume) throws Exception {
+		play (Hertz, volume);
+	}
+	
+	private void play(int Hertz, int volume) throws LineUnavailableException {
 		/** Exception is thrown when line cannot be opened */
 				 
 	    float rate = 44100;

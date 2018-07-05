@@ -17,13 +17,29 @@ public class Tone1 {
 		return "this is a " + toneName;
 	}
 
-	private void playOneNote (int Hertz, int volume) throws Exception {
+	public void playOneNote (int Hertz, int volume) throws Exception {
 		play (Hertz, volume);
+	}
+	
+	public void playNoteList (int[] notesHertz, int volume) throws Exception {
+		
+		int i = 0;
+		
+		System.out.println("There are " + notesHertz.length + " notes to play.");
+		
+		while (i < notesHertz.length) {
+			
+	    System.out.println("Playing " + notesHertz[i]);
+		play (notesHertz[i], volume);
+		
+		i++;
+		
+		}
 	}
 	
 	private void play(int Hertz, int volume) throws LineUnavailableException {
 		/** Exception is thrown when line cannot be opened */
-				 
+				
 	    float rate = 44100;
 	    byte[] buf;
 	    AudioFormat audioF;

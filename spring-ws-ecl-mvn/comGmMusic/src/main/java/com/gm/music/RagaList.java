@@ -19,5 +19,10 @@ public class RagaList {
 		ragaList.put("shankarabharana", shankarabharana);
 	}
 	
+	public String[] getRagaNotes (String ragaName) {
+		
+	return ragaList.get(ragaName);
+		
+	}
 }
 

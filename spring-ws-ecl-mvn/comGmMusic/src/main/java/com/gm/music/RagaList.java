@@ -31,10 +31,12 @@ public class RagaList {
 	private float[] n2 = {233.1f, 466.2f, 932.3f}; // bb
 	private float[] n3 = {246.9f, 493.9f, 987.8f}; // b
 	
+	private float[] x = {0f,0f,0f}; // dummy when raga's have gaps in their notes
+	
 	// Ragas
 	private  String[] mayamalavagaula = {"s","r1","g3","m1","p","d1","n3"};	
 	private  String[] shankarabharana = {"s","r2","g3","m1","p","d1","n3"};
-	
+	private  String[] mrugendramadhyama = {"s","r3","x","m1","x","d1","n2"};
 	
 	HashMap<String, String[]> ragaNoteList = new HashMap<String, String[]>();
 	HashMap<String, float[]>  noteFreqList = new HashMap<String, float[]>();
@@ -57,10 +59,11 @@ public class RagaList {
 	return noteFreqList.get(noteName)[octave];
 		
 	}
-	
+		
 	private void setRagaList() {
 		ragaNoteList.put("mayamalavagaula", mayamalavagaula);
 		ragaNoteList.put("shankarabharana", shankarabharana);
+		ragaNoteList.put("mrugendramadhyama", mrugendramadhyama);
 	}
 	
 	private void setNoteList() {
@@ -79,6 +82,8 @@ public class RagaList {
 		noteFreqList.put("n1", n1);
 		noteFreqList.put("n2", n2);
 		noteFreqList.put("n3", n3);
+		noteFreqList.put("x", x);
 	}
+	
 }
 

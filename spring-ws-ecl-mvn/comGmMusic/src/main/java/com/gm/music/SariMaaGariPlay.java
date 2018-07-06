@@ -5,6 +5,7 @@ import com.gm.music.NotesList;
 public class SariMaaGariPlay {
 	
 	static String raga = "mayamalavagaula";
+	//static String raga = "shankarabharana";
 	
 	static float s2  = NotesList.s[1];
 	static float r12 = NotesList.r1[1];
@@ -45,6 +46,7 @@ public class SariMaaGariPlay {
 		//myTone.playOneNoteOneSecond(100, 150);
 		
 		/*
+		System.out.println("Playing once");
 		
 		float[][] songLine1 = { 
 				 {s2, 0.5f}, {r12, 0.5f}, {m12, 1.0f}, {g32, 0.5f}, {r12, 0.5f},

@@ -5,12 +5,12 @@ import com.gm.music.NotesList;
 public class Tone2aPlay {
 	
 	static float s2  = NotesList.s2;
-	static float r21 = NotesList.r21;
-	static float g23 = NotesList.g23;
-	static float m21 = NotesList.m21;
+	static float r21 = NotesList.r12;
+	static float g23 = NotesList.g32;
+	static float m21 = NotesList.m12;
 	static float p2  = NotesList.p2;
-	static float d21 = NotesList.d21;
-	static float n23 = NotesList.n23;
+	static float d21 = NotesList.d12;
+	static float n23 = NotesList.n32;
 	static float s3  = NotesList.s3;
 	
 	public static void main(String[] args) throws Exception {

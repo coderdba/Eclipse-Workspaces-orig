@@ -22,7 +22,7 @@ public class ReadSongFileAndPrint {
 		
 		System.out.println("List of elements " + elements.toString());
 		
-		// get and print only the first split
+		// print only the first split
 		for (int i=0; i<elementsCount; i++) {
 			
 			// note-octave, length
@@ -48,17 +48,14 @@ public class ReadSongFileAndPrint {
 			
 		}
 		
-		// get and split the whole stream
+		// print whole stream
 		for (int i=0; i<songStreamLength; i++) {
-			
-			// note-octave, length
-			
+
 			String element = songStream.get(i);
 			
 			System.out.println("Element " + element);
 			
 		}
-		
 		
 	}
 

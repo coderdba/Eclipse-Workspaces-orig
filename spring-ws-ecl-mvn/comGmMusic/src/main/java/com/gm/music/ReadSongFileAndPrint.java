@@ -35,7 +35,7 @@ public class ReadSongFileAndPrint {
 				length = 1; 
 			}
 			
-			System.out.println(element + " " + note + " " + length);
+			System.out.println("Note: " + note + " Length: " + length);
 			
 		}
 		

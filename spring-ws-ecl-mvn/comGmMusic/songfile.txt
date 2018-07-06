@@ -1,1 +1,1 @@
-abc,def,ghi
+s0.1,r1.2,g0,m0,p1.1

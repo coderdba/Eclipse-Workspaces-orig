@@ -10,7 +10,7 @@ public class Tones {
 	String instrument;
 
 	public Tones() {
-		instrument = "piano";
+		this.instrument = "piano";
 	}
 
 	public String toString() {

@@ -115,8 +115,11 @@ public class Tones {
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(cosAngle1, 3) + Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2) + Math.sin(angle3)) * volume);
+			
 			//buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
-			buf[0] = (byte)((Math.pow(cosAngle1,6) + Math.sin(angle2)) * volume); //good	      
+			//buf[0] = (byte)((Math.pow(cosAngle1,6) + Math.sin(angle2)) * volume); //good	 
+			
+		    buf[0] = getBufferByte (cosAngle1, angle2, volume);
 			sourceDL.write(buf,0,1);
 				     
 			}
@@ -124,5 +127,10 @@ public class Tones {
 			sourceDL.drain();
 			sourceDL.stop();
 			sourceDL.close();	  
+	 }
+	
+	 public byte getBufferByte (double cosAngle1, double angle2, int volume) {
+		 
+		 return (byte)((Math.pow(cosAngle1,6) + Math.sin(angle2)) * volume); 
 	 }
 }

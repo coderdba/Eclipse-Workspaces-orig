@@ -7,14 +7,14 @@ import javax.sound.sampled.SourceDataLine;
 
 public class Tones {
 
-	String toneName;
+	String instrument;
 
 	public Tones() {
-		toneName = "piano";
+		instrument = "piano";
 	}
 
 	public String toString() {
-		return "this is a " + toneName;
+		return "this is a " + instrument;
 	}
 
 	public void playOneNote (int Hertz, int volume, float lengthSeconds) {

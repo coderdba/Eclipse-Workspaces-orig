@@ -109,12 +109,14 @@ public class Tone2 {
 
 			double sinAngle1 = Math.sin(angle1);
 			double cosAngle1 = Math.cos(angle1);
+			double sinAngle2 = Math.sin(angle2);
+			double cosAngle2 = Math.cos(angle2);
 				      
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(cosAngle1, 3) + Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2) + Math.sin(angle3)) * volume);
-			buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
-				      
+			//buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
+			buf[0] = (byte)((Math.pow(cosAngle1,6) + Math.sin(angle2)) * volume); //good	      
 			sourceDL.write(buf,0,1);
 				     
 			}

@@ -9,7 +9,10 @@ public class PlaySongFile {
 		SongFileReader songFileReader = new SongFileReader("songfile.txt");
 
 		List<String> songStream = songFileReader.getSongStream();
+		List<String[][][]> songStreamArray = songFileReader.getSongStreamArray();
+		
 		int songStreamLength = songStream.size();
+		int songStreamArrayLength = songStreamArray.size();
 		
 		String noteAndOctave;
 		String note;
@@ -39,24 +42,21 @@ public class PlaySongFile {
 		float n0 = ragaList.getNoteFreq(N, 0);
 				
 		// print whole stream (just to debug)
+		/*
 		for (int i=0; i<songStreamLength; i++) {
 			String element = songStream.get(i);
 			System.out.println("Element " + element);
 		}
+		*/
 		
 		// play the file
 		float[][] songLine;
 		
-		for (int i=0; i<songStreamLength; i++) {
+		for (int i=0; i<songStreamArrayLength; i++) {
 			
-			int j=i+1;
-			
-			String element = songStream.get(i);
-			
-			if ((j % 2) != 0) {
-				
-			}
-			
+			note   = songStreamArray.get(i)[0];
+			octave = songStreamArray.get(i)[0];
+			length = songStreamArray.get(i)[0];
 		}
 		
 	}

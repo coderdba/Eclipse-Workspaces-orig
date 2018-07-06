@@ -30,22 +30,22 @@ public class SariMaaGariPlay {
 		String D = ragaNoteList[5];
 		String N = ragaNoteList[6];
 		
-		float s = ragaList.getNoteFreq(S, 0);
-		float r = ragaList.getNoteFreq(R, 0);
-		float g = ragaList.getNoteFreq(G, 0);
-		float m = ragaList.getNoteFreq(M, 0);
-		float p = ragaList.getNoteFreq(P, 0);
-		float d = ragaList.getNoteFreq(D, 0);
-		float n = ragaList.getNoteFreq(N, 0);
+		float s = ragaList.getNoteFreq(S, 1);
+		float r = ragaList.getNoteFreq(R, 1);
+		float g = ragaList.getNoteFreq(G, 1);
+		float m = ragaList.getNoteFreq(M, 1);
+		float p = ragaList.getNoteFreq(P, 1);
+		float d = ragaList.getNoteFreq(D, 1);
+		float n = ragaList.getNoteFreq(N, 1);
 		
-		Tone2 myTone = new Tone2();
+		Tones myTone = new Tones();
 		
 		System.out.println ("The class is " + myTone.getClass().getName());
 		System.out.println (myTone.toString());
 		
 		//myTone.playOneNoteOneSecond(100, 150);
 		
-		/*
+		
 		System.out.println("Playing once");
 		
 		float[][] songLine1 = { 
@@ -57,7 +57,7 @@ public class SariMaaGariPlay {
 				,{s2, 0.5f}, {r12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 1.0f}};
 
         myTone.playNoteList(songLine1, 70);
-        */
+        
 		
         System.out.println("Playing again");
         

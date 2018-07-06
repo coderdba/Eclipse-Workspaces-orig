@@ -22,7 +22,7 @@ public class Tone2Play {
 	static float p2  = NotesList.p[1];
 	static float d21 = NotesList.d1[1];
 	static float n23 = NotesList.n3[1];
-	static float s3  = NotesList.s[1];
+	static float s3  = NotesList.s[2];
 	
 	public static void main(String[] args) throws Exception {
 		

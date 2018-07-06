@@ -10,6 +10,7 @@ public class TestSomething {
 		
 		RagaList ragaList= new RagaList();
 		System.out.println(ragaList.getRagaNotes("mayamalavagaula")[1]);
+		System.out.println(ragaList.getRagaNotes("shankarabharana")[1]);
 	}
 
 }

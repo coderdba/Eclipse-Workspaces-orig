@@ -2,7 +2,7 @@ package com.gm.music;
 
 import com.gm.music.NotesList;
 
-public class Tone1Play {
+public class Tone2Play {
 	
 	static float s2  = NotesList.s2;
 	static float r21 = NotesList.r21;
@@ -15,9 +15,10 @@ public class Tone1Play {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Tone1 myTone = new Tone1();
+		Tone2 myTone = new Tone2();
 		
-		System.out.println(myTone.toString());
+		System.out.println ("The class is " + myTone.getClass().getName());
+		System.out.println (myTone.toString());
 		
 		//myTone.playOneNoteOneSecond(100, 150);
 		

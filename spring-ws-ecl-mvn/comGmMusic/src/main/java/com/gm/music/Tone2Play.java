@@ -16,12 +16,12 @@ public class Tone2Play {
 	*/
 	
 	static float s2  = NotesList.s[1];
-	static float r21 = NotesList.r1[1];
-	static float g23 = NotesList.g3[1];
-	static float m21 = NotesList.m1[1];
+	static float r12 = NotesList.r1[1];
+	static float g32 = NotesList.g3[1];
+	static float m12 = NotesList.m1[1];
 	static float p2  = NotesList.p[1];
-	static float d21 = NotesList.d1[1];
-	static float n23 = NotesList.n3[1];
+	static float d12 = NotesList.d1[1];
+	static float n32 = NotesList.n3[1];
 	static float s3  = NotesList.s[2];
 	
 	public static void main(String[] args) throws Exception {
@@ -46,12 +46,12 @@ public class Tone2Play {
 		//myTone.playNoteList(songLine3, 100);
 		
 		float[][] songLine4 = { 
-				 {s2, 0.5f}, {r21, 0.5f}, {m21, 1.0f}, {g23, 0.5f}, {r21, 0.5f},
-				{s2, 0.5f}, {r21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 1.0f},
-				{r21, 0.5f}, {m21, 0.5f}, {p2, 0.5f}, {d21, 0.5f}, {m21, 0.5f}, {p2, 0.5f},
-				{d21, 0.5f}, {p2, 0.5f}, {m21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 0.5f},
-				{s2, 0.5f}, {r21, 0.5f}, {m21, 1.0f}, {g23, 0.5f}, {r21, 0.5f}
-				,{s2, 0.5f}, {r21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 1.0f}};
+				 {s2, 0.5f}, {r12, 0.5f}, {m12, 1.0f}, {g32, 0.5f}, {r12, 0.5f},
+				{s2, 0.5f}, {r12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 1.0f},
+				{r12, 0.5f}, {m12, 0.5f}, {p2, 0.5f}, {d12, 0.5f}, {m12, 0.5f}, {p2, 0.5f},
+				{d12, 0.5f}, {p2, 0.5f}, {m12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 0.5f},
+				{s2, 0.5f}, {r12, 0.5f}, {m12, 1.0f}, {g32, 0.5f}, {r12, 0.5f}
+				,{s2, 0.5f}, {r12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 1.0f}};
 
         myTone.playNoteList(songLine4, 100);
 		

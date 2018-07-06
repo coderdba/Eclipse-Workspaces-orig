@@ -6,39 +6,36 @@ public class SariMaaGariPlay {
 	
 	static String raga = "mayamalavagaula";
 	
-	/*
 	static float s2  = NotesList.s[1];
-	static float r21 = NotesList.r1[1];
-	static float g23 = NotesList.g3[1];
-	static float m21 = NotesList.m1[1];
+	static float r12 = NotesList.r1[1];
+	static float g32 = NotesList.g3[1];
+	static float m12 = NotesList.m1[1];
 	static float p2  = NotesList.p[1];
-	static float d21 = NotesList.d1[1];
-	static float n23 = NotesList.n3[1];
+	static float d12 = NotesList.d1[1];
+	static float n32 = NotesList.n3[1];
 	static float s3  = NotesList.s[2];
-	*/
 	
 	public static void main(String[] args) throws Exception {
 		
 		RagaList ragaList= new RagaList();
 		
-		String[] noteList = ragaList.getRagaNotes(raga);
+		String[] ragaNoteList = ragaList.getRagaNotes(raga);
 		
-		String ragaS = noteList[0];
-		String ragaR = noteList[1];
-		String ragaG = noteList[2];
-		String ragaM = noteList[3];
-		String ragaP = noteList[4];
-		String ragaD = noteList[5];
-		String ragaN = noteList[6];
+		String S = ragaNoteList[0];
+		String R = ragaNoteList[1];
+		String G = ragaNoteList[2];
+		String M = ragaNoteList[3];
+		String P = ragaNoteList[4];
+		String D = ragaNoteList[5];
+		String N = ragaNoteList[6];
 		
-		float s2  = NotesList.s[1];
-	    float r21 = NotesList.r1[1];
-		float g23 = NotesList.g3[1];
-		float m21 = NotesList.m1[1];
-		float p2  = NotesList.p[1];
-		float d21 = NotesList.d1[1];
-		float n23 = NotesList.n3[1];
-		float s3  = NotesList.s[2];
+		float s = ragaList.getNoteFreq(S, 0);
+		float r = ragaList.getNoteFreq(R, 0);
+		float g = ragaList.getNoteFreq(G, 0);
+		float m = ragaList.getNoteFreq(M, 0);
+		float p = ragaList.getNoteFreq(P, 0);
+		float d = ragaList.getNoteFreq(D, 0);
+		float n = ragaList.getNoteFreq(N, 0);
 		
 		Tone2 myTone = new Tone2();
 		
@@ -47,16 +44,30 @@ public class SariMaaGariPlay {
 		
 		//myTone.playOneNoteOneSecond(100, 150);
 		
+		/*
 		
 		float[][] songLine1 = { 
-				 {s2, 0.5f}, {r21, 0.5f}, {m21, 1.0f}, {g23, 0.5f}, {r21, 0.5f},
-				{s2, 0.5f}, {r21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 1.0f},
-				{r21, 0.5f}, {m21, 0.5f}, {p2, 0.5f}, {d21, 0.5f}, {m21, 0.5f}, {p2, 0.5f},
-				{d21, 0.5f}, {p2, 0.5f}, {m21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 0.5f},
-				{s2, 0.5f}, {r21, 0.5f}, {m21, 1.0f}, {g23, 0.5f}, {r21, 0.5f}
-				,{s2, 0.5f}, {r21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 1.0f}};
+				 {s2, 0.5f}, {r12, 0.5f}, {m12, 1.0f}, {g32, 0.5f}, {r12, 0.5f},
+				{s2, 0.5f}, {r12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 1.0f},
+				{r12, 0.5f}, {m12, 0.5f}, {p2, 0.5f}, {d12, 0.5f}, {m12, 0.5f}, {p2, 0.5f},
+				{d12, 0.5f}, {p2, 0.5f}, {m12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 0.5f},
+				{s2, 0.5f}, {r12, 0.5f}, {m12, 1.0f}, {g32, 0.5f}, {r12, 0.5f}
+				,{s2, 0.5f}, {r12, 0.5f}, {g32, 0.5f}, {r12, 0.5f}, {s2, 1.0f}};
 
         myTone.playNoteList(songLine1, 70);
+        */
+		
+        System.out.println("Playing again");
+        
+		float[][] songLine2 = { 
+				 {s, 0.5f}, {r, 0.5f}, {m, 1.0f}, {g, 0.5f}, {r, 0.5f},
+				{s, 0.5f}, {r, 0.5f}, {g, 0.5f}, {r, 0.5f}, {s, 1.0f},
+				{r, 0.5f}, {m, 0.5f}, {p, 0.5f}, {d, 0.5f}, {m, 0.5f}, {p, 0.5f},
+				{d, 0.5f}, {p, 0.5f}, {m, 0.5f}, {g, 0.5f}, {r, 0.5f}, {s, 0.5f},
+				{s, 0.5f}, {r, 0.5f}, {m, 1.0f}, {g, 0.5f}, {r, 0.5f}
+				,{s, 0.5f}, {r, 0.5f}, {g, 0.5f}, {r, 0.5f}, {s, 1.0f}};
+
+       myTone.playNoteList(songLine2, 70);
 		
 	}
 

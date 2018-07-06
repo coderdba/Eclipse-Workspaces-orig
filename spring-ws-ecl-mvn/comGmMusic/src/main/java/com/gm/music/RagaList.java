@@ -52,6 +52,12 @@ public class RagaList {
 		
 	}
 	
+	public float getNoteFreq (String noteName, int octave) {
+		
+	return noteFreqList.get(noteName)[octave-1];
+		
+	}
+	
 	private void setRagaList() {
 		ragaNoteList.put("mayamalavagaula", mayamalavagaula);
 		ragaNoteList.put("shankarabharana", shankarabharana);
@@ -73,7 +79,6 @@ public class RagaList {
 		noteFreqList.put("n1", n1);
 		noteFreqList.put("n2", n2);
 		noteFreqList.put("n3", n3);
-		
 	}
 }
 

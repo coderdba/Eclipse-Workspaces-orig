@@ -6,7 +6,7 @@ public class ReadSongFileAndPrint {
 	
 	public static void main(String[] args) throws Exception {
 		
-		SongFileReader songFileReader = new SongFileReader("songfile.txt");
+		SongFileReader songFileReader = new SongFileReader("songfile.txt", "mayamalavagaula");
 
 		
 		List<String> elements = songFileReader.getElements();

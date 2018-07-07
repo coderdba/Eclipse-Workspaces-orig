@@ -1,1 +1,3 @@
+s,r,m.2,g,r,s,r,g,r,s.2,
+r,m,p,d,m,p,d,p,m,g,r,s,
 s,r,m.2,g,r,s,r,g,r,s.2

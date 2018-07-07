@@ -216,9 +216,23 @@ public class SongFileReaderPlayer {
 				
 				String[] arrayElement = songStreamArray.get(i);
 				float freq =  ragaList.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
-				float length = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
 				
-				toneToPlay.play(freq, 100, length);
+				Integer lengthInt = Integer.parseInt(arrayElement[2]);
+				float lengthSeconds = 0f;
+				
+				System.out.println(lengthInt);
+				
+				if (lengthInt < 0) {
+					
+					lengthSeconds = (float)((lengthInt * 0.4) * (lengthInt * 0.5));
+				}
+				else {
+					lengthSeconds = (float)(lengthInt * 0.4);
+				}
+				
+				//float lengthSeconds = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
+				
+				toneToPlay.play(freq, 100, lengthSeconds);
 			}
 		}
 

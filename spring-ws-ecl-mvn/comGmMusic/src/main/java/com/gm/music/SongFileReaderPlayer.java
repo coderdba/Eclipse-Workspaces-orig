@@ -195,7 +195,7 @@ public class SongFileReaderPlayer {
 				String realNote = ragaNotes[notesIndex.get(note)];
 				songStream.add(realNote);
 				
-				songStream.add(octave);
+				songStream.add(octave);				
 				songStream.add(length);
 
 				//System.out.println("Note: " + note + " Length: " + length);
@@ -204,7 +204,6 @@ public class SongFileReaderPlayer {
 			
 			return songStream;
 		}
-	
 		
 		public void playSong() throws Exception {
 			
@@ -217,7 +216,7 @@ public class SongFileReaderPlayer {
 				
 				String[] arrayElement = songStreamArray.get(i);
 				float freq =  ragaList.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
-				float length = Integer.parseInt(arrayElement[2]);
+				float length = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
 				
 				toneToPlay.play(freq, 100, length);
 			}

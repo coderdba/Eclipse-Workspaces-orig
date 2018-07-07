@@ -7,14 +7,14 @@ import java.util.HashMap;
 
 import java.util.ArrayList;
 
-public class SongFileReader {
+public class SongFileReaderPlayer {
 	
 	private File infile;
 	private RagaList ragaList;
 	private String[] ragaNotes;
 	private HashMap<String, Integer> notesIndex;
 
-	public SongFileReader(String filePath, String raga) {
+	public SongFileReaderPlayer(String filePath, String raga) {
 		
 		this.ragaList = new RagaList();
 		this.infile = new File (filePath);

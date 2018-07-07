@@ -232,6 +232,7 @@ public class SongFileReaderPlayer {
 				
 				//float lengthSeconds = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
 				
+				System.out.println("freq: " + freq + "length Sec: " + lengthSeconds);
 				toneToPlay.play(freq, 100, lengthSeconds);
 			}
 		}

@@ -6,7 +6,12 @@ public class PlaySongFile {
 
 	public static void main(String[] args) throws Exception {
 		
-		SongFileReaderPlayer songFileReaderPlayer = new SongFileReaderPlayer("devadeva.txt", "mayamalavagaula");
+		String fileName;
+		//fileName = "devadeva.txt";
+		fileName = "sarimagari.txt";
+		//fileName = "devadevadeethijaliline.txt";
+		
+		SongFileReaderPlayer songFileReaderPlayer = new SongFileReaderPlayer(fileName, "mayamalavagaula");
 		
 		songFileReaderPlayer.playSong();
 	}

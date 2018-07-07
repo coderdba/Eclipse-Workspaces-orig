@@ -1,29 +1,24 @@
 package com.gm.music;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.HashMap;
-import java.util.Map;
-
-import java.util.Map;
 
 import java.util.ArrayList;
 
 public class SongFileReader {
 	
 	private File infile;
-	private String raga;
+	private RagaList ragaList;
 	private String[] ragaNotes;
 	private HashMap<String, Integer> notesIndex;
-	
+
 	public SongFileReader(String filePath, String raga) {
 		
+		this.ragaList = new RagaList();
 		this.infile = new File (filePath);
-		this.raga = raga;
-		this.ragaNotes = new RagaList().getRagaNotes(raga);
+		this.ragaNotes = ragaList.getRagaNotes(raga);
 		this.notesIndex = new HashMap<String, Integer>();
 		
 		setNotesIndex();
@@ -208,6 +203,24 @@ public class SongFileReader {
 			}
 			
 			return songStream;
+		}
+	
+		
+		public void playSong() throws Exception {
+			
+			List<String[]> songStreamArray;
+			songStreamArray = this.getSongStreamArray();
+			
+			Tone2 toneToPlay = new Tone2();
+			
+			for (int i=0; i < songStreamArray.size(); i++) {
+				
+				String[] arrayElement = songStreamArray.get(i);
+				float freq =  ragaList.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
+				float length = Integer.parseInt(arrayElement[2]);
+				
+				toneToPlay.play(freq, 100, length);
+			}
 		}
 
 }

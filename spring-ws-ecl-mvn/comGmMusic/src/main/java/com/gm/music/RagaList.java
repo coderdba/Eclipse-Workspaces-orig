@@ -54,7 +54,7 @@ public class RagaList {
 
 	}
 
-	public float getNoteFreq(String noteName, int octave) {
+	public float getNoteFreq (String noteName, int octave) {
 
 		return noteFreqList.get(noteName)[octave];
 

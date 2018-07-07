@@ -83,7 +83,7 @@ public class Tone2 {
 				  
 	 }
 	
-	private void play (int Hertz, int volume, float lengthSeconds) throws LineUnavailableException {
+	public void play (float Hertz, int volume, float lengthSeconds) throws LineUnavailableException {
 		/** Exception is thrown when line cannot be opened */
 				
 		float rate=44100;

@@ -217,8 +217,12 @@ public class SongFilePlayer {
 				//songStream.add(note);
 				
 				// get the real note specific for the raga
+				
+				/* old code
 				//String realNote = ragaNotes[notesIndex.get(note)];
 				//songStream.add(realNote);
+				 */
+				
 				HashMap notesIndex = notes.getNotesIndex();
 				int index = Integer.getInteger(notesIndex.get(note).toString());
 				String realNote = ragaNotes[index];

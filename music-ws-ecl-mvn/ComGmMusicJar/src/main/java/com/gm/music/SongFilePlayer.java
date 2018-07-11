@@ -25,6 +25,41 @@ public class SongFilePlayer {
 		this.ragaNotes = ragas.getRagaNotes(raga);
 		
 	}
+	
+	public void playSong() throws Exception {
+		
+		List<String[]> songStreamArray;
+		songStreamArray = this.getSongStreamArray();
+		
+		// is it better to make this a class-attribute?
+		//Tone toneToPlay = new Tone();
+		
+		for (int i=0; i < songStreamArray.size(); i++) {
+			
+			String[] arrayElement = songStreamArray.get(i);
+			float freq =  ragas.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
+			
+			Integer lengthInt = Integer.parseInt(arrayElement[2]);
+			float lengthSeconds = 0f;
+			
+			System.out.println(lengthInt);
+			
+			if (lengthInt < 0) {
+				
+				lengthSeconds = (float)((lengthInt * 0.4) * (lengthInt * 0.5));
+			}
+			else {
+				lengthSeconds = (float)(lengthInt * 0.4);
+			}
+			
+			//float lengthSeconds = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
+			
+			System.out.println("freq: " + freq + "length Sec: " + lengthSeconds);
+		
+			player.playOneNote(freq, 100, lengthSeconds);
+							
+		}
+	}
 
 	// https://stackoverflow.com/questions/19844649/java-read-file-and-store-text-in-an-array
 	public List<String> getElements()  throws Exception {
@@ -198,40 +233,4 @@ public class SongFilePlayer {
 			
 			return songStream;
 		}
-		
-		public void playSong() throws Exception {
-			
-			List<String[]> songStreamArray;
-			songStreamArray = this.getSongStreamArray();
-			
-			// is it better to make this a class-attribute?
-			//Tone toneToPlay = new Tone();
-			
-			for (int i=0; i < songStreamArray.size(); i++) {
-				
-				String[] arrayElement = songStreamArray.get(i);
-				float freq =  ragas.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
-				
-				Integer lengthInt = Integer.parseInt(arrayElement[2]);
-				float lengthSeconds = 0f;
-				
-				System.out.println(lengthInt);
-				
-				if (lengthInt < 0) {
-					
-					lengthSeconds = (float)((lengthInt * 0.4) * (lengthInt * 0.5));
-				}
-				else {
-					lengthSeconds = (float)(lengthInt * 0.4);
-				}
-				
-				//float lengthSeconds = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
-				
-				System.out.println("freq: " + freq + "length Sec: " + lengthSeconds);
-			
-				player.playOneNote(freq, 100, lengthSeconds);
-				
-			}
-		}
-
 }

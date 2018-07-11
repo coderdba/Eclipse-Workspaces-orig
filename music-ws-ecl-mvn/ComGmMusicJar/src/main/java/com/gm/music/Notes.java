@@ -15,6 +15,9 @@ public class Notes {
 	// Map of frequency power for other notes
 	//private HashMap<String, float[]> noteFreqPower = new HashMap<String, float[]>();
 	
+	// Index to note order
+	private HashMap<String, Integer> notesIndex;
+	
 	// Notes map
 	private HashMap<String, float[]> noteFreqMap1 = new HashMap<String, float[]>();
 	private HashMap<String, float[][]> noteFreqMap2 = new HashMap<String, float[][]>();
@@ -61,6 +64,15 @@ public class Notes {
 	
 	private void setNoteMap() {
 		
+		// Index of order of notes
+        notesIndex.put("s", 0);
+        notesIndex.put("r", 1);
+        notesIndex.put("g", 2);
+        notesIndex.put("m", 3);
+        notesIndex.put("p", 4);
+        notesIndex.put("d", 5);
+        notesIndex.put("n", 6);
+		
 		// Map1
 		noteFreqMap1.put("s", sFreqs);
 		noteFreqMap1.put("r1", r1Freqs);
@@ -89,6 +101,12 @@ public class Notes {
 
 	}
 
+	public HashMap getNotesIndex() {
+		
+		return notesIndex;
+		
+	}
+	
 	public float getNoteFreq(String noteName, int octave) {
 
 		return noteFreqMap1.get(noteName)[octave];

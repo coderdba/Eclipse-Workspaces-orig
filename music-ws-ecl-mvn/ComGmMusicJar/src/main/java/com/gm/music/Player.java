@@ -4,7 +4,9 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class Player {
 	
-	Tone tone;
+	Tone   tone;
+	Notes  notes;
+	Ragas  ragas;
 	
 	// constructors
 	public Player () {
@@ -15,7 +17,9 @@ public class Player {
 	
 	public Player (String toneName) {
 		
-		tone = new Tone(toneName);
+		tone  = new Tone(toneName);
+		notes = new Notes();
+		ragas = new Ragas();
 		
 	}
 
@@ -55,7 +59,7 @@ public class Player {
 		playNoteList (notesHertz, volume, 1.0f);
 		
 	}
-	
+
 	public void playNoteList (float[][] notes, int volume) throws Exception {
 		
 		// notes[][] has note hertz and seconds to play

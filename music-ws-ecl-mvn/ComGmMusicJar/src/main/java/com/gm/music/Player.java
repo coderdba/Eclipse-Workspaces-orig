@@ -25,13 +25,13 @@ public class Player {
 
 	
 	// Methods
-	public void playOneNote (int Hertz, int volume, float lengthSeconds) throws Exception {
+	public void playOneNote (float Hertz, int volume, float lengthSeconds) throws Exception {
 		
 		tone.play (Hertz, volume, lengthSeconds);
 				  
 	}
 	
-	public void playOneNoteOneSecond (int Hertz, int volume) throws Exception {
+	public void playOneNoteOneSecond (float Hertz, int volume) throws Exception {
 		
 		playOneNote (Hertz, volume, 1.0f);
 				  

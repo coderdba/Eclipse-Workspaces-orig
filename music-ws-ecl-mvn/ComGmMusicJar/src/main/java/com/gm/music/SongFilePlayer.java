@@ -25,7 +25,6 @@ public class SongFilePlayer {
 		this.ragaNotes = ragas.getRagaNotes(raga);
 		
 	}
-	
 
 	// https://stackoverflow.com/questions/19844649/java-read-file-and-store-text-in-an-array
 	public List<String> getElements()  throws Exception {
@@ -109,7 +108,9 @@ public class SongFilePlayer {
 				}
 				
 				// get the real note specific for the raga
-				String realNote = ragaNotes[notesIndex.get(note)];
+				HashMap notesIndex = notes.getNotesIndex();
+				int index = Integer.getInteger(notesIndex.get(note).toString());
+				String realNote = ragaNotes[index];
 				
 				// add the real-note, octave and length to array
 				String[] arrayElement = {realNote,octave,length};	
@@ -182,8 +183,11 @@ public class SongFilePlayer {
 				//songStream.add(note);
 				
 				// get the real note specific for the raga
-				String realNote = ragaNotes[notesIndex.get(note)];
-				songStream.add(realNote);
+				//String realNote = ragaNotes[notesIndex.get(note)];
+				//songStream.add(realNote);
+				HashMap notesIndex = notes.getNotesIndex();
+				int index = Integer.getInteger(notesIndex.get(note).toString());
+				String realNote = ragaNotes[index];
 				
 				songStream.add(octave);				
 				songStream.add(length);
@@ -224,7 +228,9 @@ public class SongFilePlayer {
 				//float lengthSeconds = (float) (Integer.parseInt(arrayElement[2]) * 0.4);
 				
 				System.out.println("freq: " + freq + "length Sec: " + lengthSeconds);
-				toneToPlay.play(freq, 100, lengthSeconds);
+			
+				player.playOneNote(freq, 100, lengthSeconds);
+				
 			}
 		}
 

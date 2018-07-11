@@ -213,7 +213,6 @@ public class SongFilePlayer {
 				else {
 					length = "1"; 
 				}
-				
 						
 				//songStream.add(note);
 				
@@ -224,6 +223,7 @@ public class SongFilePlayer {
 				int index = Integer.getInteger(notesIndex.get(note).toString());
 				String realNote = ragaNotes[index];
 				
+				songStream.add(realNote);
 				songStream.add(octave);				
 				songStream.add(length);
 

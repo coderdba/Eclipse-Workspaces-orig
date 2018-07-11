@@ -89,10 +89,9 @@ public class Notes {
 
 	}
 
-	public void getNoteFreq(String noteName, int octave) {
+	public float getNoteFreq(String noteName, int octave) {
 
-		// traditional way
-		//return noteFreqMap.get(noteName)[octave];
+		return noteFreqMap1.get(noteName)[octave];
 				
 	}
 

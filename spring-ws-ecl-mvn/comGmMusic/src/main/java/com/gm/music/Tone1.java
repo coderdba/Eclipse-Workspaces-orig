@@ -39,6 +39,8 @@ public class Tone1 {
 	
 	public void playNoteList (int[] notesHertz, int volume, float lengthSeconds) throws Exception {
 		
+		System.out.println("playing note-list");
+		
 		int i = 0;
 		
 		System.out.println("There are " + notesHertz.length + " notes to play.");
@@ -105,8 +107,13 @@ public class Tone1 {
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(cosAngle1, 3) + Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2) + Math.sin(angle3)) * volume);
-			buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
-				      
+			
+			//buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
+			//buf[0] = (byte)((Math.pow(cosAngle1,6) + Math.sin(angle2)) * volume); //good
+			//buf[0] = (byte)((20 * Math.pow(cosAngle1,200) + 3 * Math.sin(angle2)) * volume); //good
+			System.out.println("here here here");
+			buf[0] = (byte)(Math.sin(angle2) * volume); //good
+			
 			sourceDL.write(buf,0,1);
 			
 			}
@@ -135,6 +142,7 @@ public class Tone1 {
 		//sourceDL.open(audioF,44100/16);
 		sourceDL.start();
 				 
+		System.out.println("playing a note now");
 		for(int i=0; i<lengthAsRate; i++){
 
 			// https://dsp.stackexchange.com/questions/46598/mathematical-equation-for-the-sound-wave-that-a-piano-makes?rq=1
@@ -154,9 +162,24 @@ public class Tone1 {
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(cosAngle1, 3) + Math.pow(sinAngle1, 3) + Math.sin(angle2)) * volume); // new orig
 			//buf[0] = (byte)((Math.pow(sinAngle1, 3) + Math.sin(angle2) + Math.sin(angle3)) * volume);
-			buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
-				      
+			
+			//buf[0] = (byte)((Math.pow(cosAngle1,106) + Math.sin(angle2)) * volume); //good
+			
+			//buf[0] = (byte)((Math.sin(angle2) + cosAngle1 + 0.5 )* volume); //good  
+			
+			//System.out.println ("abc");
+			//buf[0] = (byte)(Math.pow(Math.sin(angle1), 3) *volume/5+ Math.sin(angle1) * volume); //good 
+			
+			//buf[0] = (byte)(((Math.pow(Math.sin(angle1), 3) + Math.sin(angle2)) * volume) +
+					//(byte)((Math.pow(Math.sin(angle1), 10) + Math.sin(angle2)) * volume)) ;
 
+			buf[0] = (byte)(Math.pow(Math.sin(angle1), 3) * volume/4 + 
+					Math.cos(angle2) * volume + 
+					Math.pow(Math.sin(angle2),2) * volume +
+					Math.pow(Math.cos(angle2),1) * volume +
+					Math.pow(Math.cos(angle2),2) * volume
+					); //good 
+			
 			sourceDL.write(buf,0,1);
 				     
 			}

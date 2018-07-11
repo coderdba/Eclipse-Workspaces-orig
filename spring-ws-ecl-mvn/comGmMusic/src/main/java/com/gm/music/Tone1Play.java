@@ -33,6 +33,7 @@ public class Tone1Play {
 		
 		//myTone.playNoteList(songLine3, 100);
 		
+		
 		float[][] songLine4 = { 
 				 {s2, 0.5f}, {r21, 0.5f}, {m21, 1.0f}, {g23, 0.5f}, {r21, 0.5f},
 				{s2, 0.5f}, {r21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 1.0f},
@@ -40,7 +41,11 @@ public class Tone1Play {
 				{d21, 0.5f}, {p2, 0.5f}, {m21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 0.5f},
 				{s2, 0.5f}, {r21, 0.5f}, {m21, 1.0f}, {g23, 0.5f}, {r21, 0.5f}
 				,{s2, 0.5f}, {r21, 0.5f}, {g23, 0.5f}, {r21, 0.5f}, {s2, 1.0f}};
-
+				
+		
+		//float[][] songLine4 = {{s2, 0.5f}};
+		
+		System.out.println(songLine4.toString());
         myTone.playNoteList(songLine4, 100);
 		
 	}

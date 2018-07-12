@@ -12,6 +12,8 @@ public class Player {
 	public Player () {
 		
 		tone = new Tone();
+		notes = new Notes();
+		ragas = new Ragas();
 		
 	}
 	

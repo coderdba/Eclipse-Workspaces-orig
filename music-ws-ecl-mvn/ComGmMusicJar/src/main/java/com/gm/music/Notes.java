@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class Notes {
 	
 	// Base Reference Frequency
-	private float baseFreqC4S = 261.6f; // s, c4
-	private float factor = 1.059463f; // 12 scale factor for every half step
+	//private float baseFreqC4S = 261.6f; // s, c4
+	//private float factor = 1.059463f; // 12 scale factor for every half step
 	
 	// Map of frequency power for other notes
 	//private HashMap<String, float[]> noteFreqPower = new HashMap<String, float[]>();
 	
 	// Index to note order
-	private HashMap<String, Integer> notesIndex;
+	private HashMap<String, Integer> notesIndex = new HashMap<String, Integer>();
 	
 	// Notes map
 	private HashMap<String, float[]> noteFreqMap1 = new HashMap<String, float[]>();
@@ -66,6 +66,7 @@ public class Notes {
 		
 		// Index of order of notes
         notesIndex.put("s", 0);
+        System.out.println("In Notes Class: " + notesIndex.get("s"));
         notesIndex.put("r", 1);
         notesIndex.put("g", 2);
         notesIndex.put("m", 3);

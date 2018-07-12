@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Map;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,8 @@ public class SongFilePlayer {
 		List<String[]> songStreamArray;
 		songStreamArray = this.getSongStreamArray();
 		
+		System.out.println("Song Stream Array is " + songStreamArray.toString());
+		
 		// is it better to make this a class-attribute?
 		//Tone toneToPlay = new Tone();
 		
@@ -43,8 +46,8 @@ public class SongFilePlayer {
 			
 			String[] arrayElement = songStreamArray.get(i);
 			
-			float freq =  player.getRagas().getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
-			//float freq =  ragas.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
+			//float freq =  player.getRagas().getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
+			float freq =  player.getNotes().getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
 			
 			Integer lengthInt = Integer.parseInt(arrayElement[2]);
 			float lengthSeconds = 0f;
@@ -100,6 +103,9 @@ public class SongFilePlayer {
 			
 			// comma delimiter
 			infileScanner.useDelimiter(",\\s*");
+			
+			// other stuff required for this method
+			HashMap<String, Integer> notesIndex = player.getNotes().getNotesIndex();
 					
 		    while (infileScanner.hasNext()) {
 		    	
@@ -151,9 +157,15 @@ public class SongFilePlayer {
 				
 				// get the real note specific for the raga
 				//HashMap notesIndex = notes.getNotesIndex();
-				HashMap notesIndex = player.getNotes().getNotesIndex();
 				
-				int index = Integer.getInteger(notesIndex.get(note).toString());
+				////HashMap notesIndex = player.getNotes().getNotesIndex();
+				
+				//System.out.println("Notes Index size in SongPlayer is " + notesIndex.size());
+				System.out.println("Current note in SongPlayer is " + note);
+				//System.out.println("Its index is " + notesIndex.get(note).toString());
+				//System.out.println("Class of the index is " + notesIndex.get(note).getClass());
+				
+				int index = notesIndex.get(note);
 				
 				//String realNote = ragaNotes[index];
 				String realNote = player.getRagas().getRagaNotes(raga)[index];

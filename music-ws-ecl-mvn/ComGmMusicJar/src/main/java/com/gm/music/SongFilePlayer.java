@@ -36,9 +36,7 @@ public class SongFilePlayer {
 		
 		List<String[]> songStreamArray;
 		songStreamArray = this.getSongStreamArray();
-		
-		System.out.println("Song Stream Array is " + songStreamArray.toString());
-		
+				
 		// is it better to make this a class-attribute?
 		//Tone toneToPlay = new Tone();
 		
@@ -46,7 +44,6 @@ public class SongFilePlayer {
 			
 			String[] arrayElement = songStreamArray.get(i);
 			
-			//float freq =  player.getRagas().getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
 			float freq =  player.getNotes().getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
 			
 			Integer lengthInt = Integer.parseInt(arrayElement[2]);
@@ -101,7 +98,7 @@ public class SongFilePlayer {
 			// this will be returned
 			List<String[]> songStreamArray = new ArrayList<String[]>();
 			
-			// comma delimiter
+			// comma delimiter to scan the file
 			infileScanner.useDelimiter(",\\s*");
 			
 			// other stuff required for this method
@@ -127,8 +124,7 @@ public class SongFilePlayer {
 				String octave;
 				String length;
 				
-				// note-octave, length
-				
+				// each element is note-octave pair and length (like s or s.2 or s0.1 etc)
 				String element = elements.get(i);
 				
 				//System.out.println("Element " + element);
@@ -140,6 +136,7 @@ public class SongFilePlayer {
 				
 				note = splitNoteAndOctave[0];
 				
+				// octave is optional, so set default if not set
 				if (splitNoteAndOctave.length > 1) {
 					octave = splitNoteAndOctave[1];
 				}
@@ -147,6 +144,7 @@ public class SongFilePlayer {
 					octave = "1";
 				}
 				
+				// length is optional, so set default if not set
 				if (splitString.length > 1) {
 					
 				    length = splitString[1];
@@ -161,7 +159,7 @@ public class SongFilePlayer {
 				////HashMap notesIndex = player.getNotes().getNotesIndex();
 				
 				//System.out.println("Notes Index size in SongPlayer is " + notesIndex.size());
-				System.out.println("Current note in SongPlayer is " + note);
+				//System.out.println("Current note in SongPlayer is " + note);
 				//System.out.println("Its index is " + notesIndex.get(note).toString());
 				//System.out.println("Class of the index is " + notesIndex.get(note).getClass());
 				
@@ -169,7 +167,8 @@ public class SongFilePlayer {
 				
 				//String realNote = ragaNotes[index];
 				String realNote = player.getRagas().getRagaNotes(raga)[index];
-				
+				System.out.println("Current note in SongPlayer is " + note + ", real note: " + realNote);
+
 				// add the real-note, octave and length to array
 				String[] arrayElement = {realNote,octave,length};	
 				songStreamArray.add(arrayElement);	

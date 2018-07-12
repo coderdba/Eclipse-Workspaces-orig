@@ -11,21 +11,26 @@ public class SongFilePlayer {
 	
 	private File      infile;
 	private Player    player;
-    private Ragas     ragas;
-	private Notes     notes;
-	private String[]  ragaNotes;
+	private String    raga;
+	
+	// these three can be derived from player above
+    //private Ragas     ragas;
+	//private Notes     notes;
+	//private String[]  ragaNotes;
 
-
+    // constructors
 	public SongFilePlayer(String filePath, String raga) {
 		
 		this.infile = new File(filePath);
 		this.player = new Player();
-		this.ragas  = new Ragas();
-		this.notes  = new Notes();
-		this.ragaNotes = ragas.getRagaNotes(raga);
+		this.raga   = raga;
+		//this.ragas  = new Ragas();
+		//this.notes  = new Notes();
+		//this.ragaNotes = ragas.getRagaNotes(raga);
 		
 	}
 	
+	// methods
 	public void playSong() throws Exception {
 		
 		List<String[]> songStreamArray;
@@ -37,7 +42,9 @@ public class SongFilePlayer {
 		for (int i=0; i < songStreamArray.size(); i++) {
 			
 			String[] arrayElement = songStreamArray.get(i);
-			float freq =  ragas.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
+			
+			float freq =  player.getRagas().getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
+			//float freq =  ragas.getNoteFreq(arrayElement[0], Integer.parseInt(arrayElement[1]));
 			
 			Integer lengthInt = Integer.parseInt(arrayElement[2]);
 			float lengthSeconds = 0f;
@@ -143,9 +150,13 @@ public class SongFilePlayer {
 				}
 				
 				// get the real note specific for the raga
-				HashMap notesIndex = notes.getNotesIndex();
+				//HashMap notesIndex = notes.getNotesIndex();
+				HashMap notesIndex = player.getNotes().getNotesIndex();
+				
 				int index = Integer.getInteger(notesIndex.get(note).toString());
-				String realNote = ragaNotes[index];
+				
+				//String realNote = ragaNotes[index];
+				String realNote = player.getRagas().getRagaNotes(raga)[index];
 				
 				// add the real-note, octave and length to array
 				String[] arrayElement = {realNote,octave,length};	
@@ -223,9 +234,15 @@ public class SongFilePlayer {
 				//songStream.add(realNote);
 				 */
 				
-				HashMap notesIndex = notes.getNotesIndex();
+				// get the real note specific for the raga
+				//HashMap notesIndex = notes.getNotesIndex();
+				HashMap notesIndex = player.getNotes().getNotesIndex();
+				
 				int index = Integer.getInteger(notesIndex.get(note).toString());
-				String realNote = ragaNotes[index];
+				
+				//String realNote = ragaNotes[index];
+				String realNote = player.getRagas().getRagaNotes(raga)[index];
+				
 				
 				songStream.add(realNote);
 				songStream.add(octave);				

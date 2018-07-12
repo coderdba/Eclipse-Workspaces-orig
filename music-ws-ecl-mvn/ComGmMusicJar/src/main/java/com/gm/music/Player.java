@@ -22,9 +22,20 @@ public class Player {
 		ragas = new Ragas();
 		
 	}
-
 	
 	// Methods
+	public Ragas getRagas() {
+		return this.ragas;
+	}
+	
+	public Notes getNotes() {
+		return this.notes;
+	}
+	
+	public Tone getTone() {
+		return this.tone;
+	}
+	
 	public void playOneNote (float Hertz, int volume, float lengthSeconds) throws Exception {
 		
 		tone.play (Hertz, volume, lengthSeconds);

@@ -25,6 +25,7 @@ public class Notes {
 	// Notes and their frequencies
 	
 	private float[] xFreqs = { 0f, 0f, 0f }; // dummy when raga's have gaps in their notes
+	private float[][] xFreqsAll = {xFreqs, xFreqs, xFreqs};
 	
 	private float[] sFreqs = { 130.8f, 261.6f, 523.3f }; // c4
 	private float[][] sFreqsAll = {sFreqs, xFreqs, xFreqs};
@@ -66,13 +67,13 @@ public class Notes {
 		
 		// Index of order of notes
         notesIndex.put("s", 0);
-        System.out.println("In Notes Class: " + notesIndex.get("s"));
         notesIndex.put("r", 1);
         notesIndex.put("g", 2);
         notesIndex.put("m", 3);
         notesIndex.put("p", 4);
         notesIndex.put("d", 5);
         notesIndex.put("n", 6);
+        notesIndex.put("x", 7);
 		
 		// Map1
 		noteFreqMap1.put("s", sFreqs);
@@ -90,6 +91,7 @@ public class Notes {
 		noteFreqMap1.put("n1", n1Freqs);
 		noteFreqMap1.put("n2", n2Freqs);
 		noteFreqMap1.put("n3", n3Freqs);
+		noteFreqMap1.put("x", xFreqs);
 		
 		// Map2
 		noteFreqMap2.put("s", sFreqsAll);
@@ -99,6 +101,7 @@ public class Notes {
 		noteFreqMap2.put("p", pFreqsAll);
 		noteFreqMap2.put("d", dFreqsAll);
 		noteFreqMap2.put("n", nFreqsAll);
+		noteFreqMap2.put("x", xFreqsAll);
 
 	}
 

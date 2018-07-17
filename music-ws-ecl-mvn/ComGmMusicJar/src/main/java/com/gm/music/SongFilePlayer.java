@@ -197,12 +197,22 @@ public class SongFilePlayer {
 				//System.out.println("Its index is " + notesIndex.get(note).toString());
 				//System.out.println("Class of the index is " + notesIndex.get(note).getClass());
 				
-				int index = notesIndex.get(note);
-				
-				//String realNote = ragaNotes[index];
-				
+				int index;
 				String realNote;
-                realNote = this.ragaNotes[index];
+				
+				//if (element == "x") {
+				
+				if (element.equals("x")) {
+					
+					System.out.println("Element is " + element);
+					index = 7;
+				    realNote = element;
+				    
+				} else 
+				{
+				    index = notesIndex.get(note);
+			        realNote = this.ragaNotes[index];
+				}
 
 				System.out.println("Current note in SongPlayer is " + note + ", real note: " + realNote);
 

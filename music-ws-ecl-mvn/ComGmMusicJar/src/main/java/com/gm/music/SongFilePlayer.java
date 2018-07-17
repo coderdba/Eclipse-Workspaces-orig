@@ -202,11 +202,10 @@ public class SongFilePlayer {
 				
 				//if (element == "x") {
 				
-				if (element.equals("x")) {
-					
-					System.out.println("Element is " + element);
+				//if (element.equals("x")) {
+				if (note.equals("x")) {
 					index = 7;
-				    realNote = element;
+				    realNote = note;
 				    
 				} else 
 				{
@@ -214,6 +213,9 @@ public class SongFilePlayer {
 			        realNote = this.ragaNotes[index];
 				}
 
+				
+				System.out.println("Element is " + element + ", Length is " + length);
+					//+" taken from " + splitString[0] + " " + splitString[1]);
 				System.out.println("Current note in SongPlayer is " + note + ", real note: " + realNote);
 
 				// add the real-note, octave and length to array

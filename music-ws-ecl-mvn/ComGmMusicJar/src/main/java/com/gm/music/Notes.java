@@ -24,6 +24,7 @@ public class Notes {
 	
 	// Notes and their frequencies
 	
+	//private float[] xFreqs = { 1000f, 1000f, 1000f }; // dummy when raga's have gaps in their notes
 	private float[] xFreqs = { 0f, 0f, 0f }; // dummy when raga's have gaps in their notes
 	private float[][] xFreqsAll = {xFreqs, xFreqs, xFreqs};
 	

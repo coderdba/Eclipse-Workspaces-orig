@@ -8,7 +8,8 @@ public class PlaySong {
 		//Notes notesLocal = new Notes();
 		//System.out.println("Printing note: " + notesLocal.getNotesIndex().get("s"));
 		
-		SongFilePlayer songFilePlayer = new SongFilePlayer("sarimagari.txt", "mayamalavagaula");
+		//SongFilePlayer songFilePlayer = new SongFilePlayer("sarimagari.txt", "mayamalavagaula");
+		SongFilePlayer songFilePlayer = new SongFilePlayer("sarimagari.txt");
 		
 		songFilePlayer.playSong();
 

@@ -8,35 +8,23 @@ import java.util.Map;
 
 import java.util.ArrayList;
 
-public class SongFilePlayer {
+public class SongFilePlayerBackup {
 	
 	private File      infile;
 	private Player    player;
 	private String    raga;
-	private boolean   ragaNotesInFile;
-	private String[]  ragaNotes = {"","","","","","",""};
 	
 	// these three can be derived from player above
-    //private Ragas     ragas; 
+    //private Ragas     ragas;
 	//private Notes     notes;
-	//private String[]  ragaNotes; //though this can be derived, stored in a class variable for convenience
+	//private String[]  ragaNotes;
 
     // constructors
-	public SongFilePlayer(String filePath, String raga) {
+	public SongFilePlayerBackup(String filePath, String raga) {
 		
 		this.infile = new File(filePath);
 		this.player = new Player();
 		this.raga   = raga;	
-		this.ragaNotes = player.getRagas().getRagaNotes(raga);
-		this.ragaNotesInFile = false;
-	}
-	
-	public SongFilePlayer(String filePath) throws Exception {
-		
-		this.infile = new File(filePath);
-		this.player = new Player();
-		this.ragaNotesInFile = true;
-		setRagaAndNotes();	
 	}
 	
 	// methods
@@ -76,54 +64,13 @@ public class SongFilePlayer {
 		}
 	}
 	
-	// Set Raga and its notes
-	private void setRagaAndNotes() throws Exception {
-		
-		Scanner  infileScanner = new Scanner(infile);
-		String   raga;
-		int counter = 0;
-		
-		infileScanner.useDelimiter(",\\s*");
-		
-	    while (infileScanner.hasNext()) {
-	    	
-	        // find next item
-	        String token = infileScanner.next();
-	        
-	        System.out.println("Token from file is: " + token + " for counter " + counter);
-	        
-	        // first seven items are raga, and its notes (or dummies)
-
-            switch(counter) {
-             case 0 :
-                this.raga = token; 
-                break;
-                
-             default :
-            	 this.ragaNotes[counter-1] = token;
-            	 //this.ragaNotes = append (this.ragaNotes, token);
-            	 break;
-            }
-        
-            if (counter == 7) {
-            	break;
-            }
-            
-            counter ++;
-	    }
-        
-        infileScanner.close();
-		
-	}
-	
 	// Creates a map-stream of note-octave-length elements from the input file
 		public List<String[]> getSongStreamArray() throws Exception {
-			
+
 			Scanner infileScanner = new Scanner(infile);
 			List<String> elements = new ArrayList<String>();
-			int counter = 0;
 
-			// this will be returned - each element is a combination of real-note, octave and length
+			// this will be returned
 			List<String[]> songStreamArray = new ArrayList<String[]>();
 			
 			// comma delimiter to scan the file
@@ -134,15 +81,9 @@ public class SongFilePlayer {
 					
 		    while (infileScanner.hasNext()) {
 		    	
-		        // find next item
+		        // find next line
 		        String token = infileScanner.next();
-		        
-		        // first seven items are raga, and its notes (or dummies)
-		        if (counter > 7) {
 		        elements.add(token);
-		        }
-		        
-		        counter ++;
 		      }
 		    
 		    infileScanner.close();
@@ -200,10 +141,7 @@ public class SongFilePlayer {
 				int index = notesIndex.get(note);
 				
 				//String realNote = ragaNotes[index];
-				
-				String realNote;
-                realNote = this.ragaNotes[index];
-
+				String realNote = player.getRagas().getRagaNotes(raga)[index];
 				System.out.println("Current note in SongPlayer is " + note + ", real note: " + realNote);
 
 				// add the real-note, octave and length to array
@@ -322,94 +260,5 @@ public class SongFilePlayer {
 	    infileScanner.close();
 	    
 	    return elements; 
-	}
-	
-	// Creates a map-stream of note-octave-length elements from the input file
-	public List<String[]> getSongStreamArrayBackup() throws Exception {
-
-		Scanner infileScanner = new Scanner(infile);
-		List<String> elements = new ArrayList<String>();
-
-		// this will be returned - each element is a combination of real-note, octave and length
-		List<String[]> songStreamArray = new ArrayList<String[]>();
-		
-		// comma delimiter to scan the file
-		infileScanner.useDelimiter(",\\s*");
-		
-		// other stuff required for this method
-		HashMap<String, Integer> notesIndex = player.getNotes().getNotesIndex();
-				
-	    while (infileScanner.hasNext()) {
-	    	
-	        // find next item
-	        String token = infileScanner.next();
-	        elements.add(token);
-	        
-	      }
-	    
-	    infileScanner.close();
-	    
-	    // Now, place the elements into note-octave-speed elements		
-		//System.out.println("List of elements " + elements.toString());
-	    int elementsCount = elements.size();
-
-		for (int i=0; i<elementsCount; i++) {
-			
-		    String noteAndOctave;
-			String note;
-			String octave;
-			String length;
-			
-			// each element is note-octave pair and length (like s or s.2 or s0.1 etc)
-			String element = elements.get(i);
-			
-			//System.out.println("Element " + element);
-			
-			String[] splitString = element.split("\\.");
-			
-			noteAndOctave = splitString[0]; // note and octave composite string - like s0 is s and 0
-			String[] splitNoteAndOctave = noteAndOctave.split("");
-			
-			note = splitNoteAndOctave[0];
-			
-			// octave is optional, so set default if not set
-			if (splitNoteAndOctave.length > 1) {
-				octave = splitNoteAndOctave[1];
-			}
-			else {
-				octave = "1";
-			}
-			
-			// length is optional, so set default if not set
-			if (splitString.length > 1) {
-				
-			    length = splitString[1];
-			}
-			else {
-				length = "1"; 
-			}
-			
-			// get the real note specific for the raga
-			//HashMap notesIndex = notes.getNotesIndex();
-			
-			////HashMap notesIndex = player.getNotes().getNotesIndex();
-			
-			//System.out.println("Notes Index size in SongPlayer is " + notesIndex.size());
-			//System.out.println("Current note in SongPlayer is " + note);
-			//System.out.println("Its index is " + notesIndex.get(note).toString());
-			//System.out.println("Class of the index is " + notesIndex.get(note).getClass());
-			
-			int index = notesIndex.get(note);
-			
-			//String realNote = ragaNotes[index];
-			String realNote = player.getRagas().getRagaNotes(raga)[index];
-			System.out.println("Current note in SongPlayer is " + note + ", real note: " + realNote);
-
-			// add the real-note, octave and length to array
-			String[] arrayElement = {realNote,octave,length};	
-			songStreamArray.add(arrayElement);	
-		}
-		
-		return songStreamArray;
 	}
 }

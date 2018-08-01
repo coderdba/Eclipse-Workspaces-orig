@@ -31,9 +31,9 @@ public class UnixUtils {
 	public void runAnsible() throws Exception {
 
 		ProcessBuilder pb = new ProcessBuilder("/usr/local/bin/ansible-playbook", 
-				"-s", "/Users/dbgsm0/twork/oracle_saas/ansible/oracle_saas1/oracle_saas.yml", 
+				"-s", "/Users/myusername/twork/oracle_saas/ansible/oracle_saas1/oracle_saas.yml", 
 				"-i", 
-				"/Users/dbgsm0/opt/ansible/hosts", 
+				"/Users/myusername/opt/ansible/hosts", 
 				"-u", "ansible",
 				"-e",
 				"schema_name=test", "-e", "schema_action=CREATE");
@@ -45,7 +45,7 @@ public class UnixUtils {
 		
 		pb.redirectErrorStream(true);
 		pb.redirectOutput(logfile);
-		pb.directory(new File("/Users/dbgsm0//twork/oracle_saas/ansible/oracle_saas1"));
+		pb.directory(new File("/Users/myusername//twork/oracle_saas/ansible/oracle_saas1"));
 		Process p = pb.start();
 		
 		exitCode = p.waitFor();

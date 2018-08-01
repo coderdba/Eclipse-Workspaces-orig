@@ -31,13 +31,12 @@
 	</dependency>
 	
 	<!-- https://www.mkyong.com/spring-boot/spring-boot-jdbc-oracle-database-commons-dbcp2-example/  -->
-<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-jdbc</artifactId>
-    <version>1.5.2.RELEASE</version>
-</dependency>
-
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </dependency>
 	
     <!-- https://www.mkyong.com/spring-boot/spring-boot-jdbc-oracle-database-commons-dbcp2-example/  -->
 	<!-- Oracle JDBC driver -->
@@ -45,6 +44,13 @@
        <groupId>com.oracle</groupId>
        <artifactId>ojdbc7</artifactId>
        <version>12.1.0</version>
+    </dependency>
+    
+    <!-- for JdbcTemplate -->
+    <dependency>
+       <groupId>org.springframework</groupId>
+       <artifactId>spring-jdbc</artifactId>
+       <version>5.0.8.RELEASE</version>
     </dependency>
     
   </dependencies>

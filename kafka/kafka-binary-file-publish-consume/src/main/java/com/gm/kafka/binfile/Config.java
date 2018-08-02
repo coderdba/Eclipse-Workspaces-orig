@@ -11,29 +11,25 @@ public class Config {
 
 	// read configuration from config file
 	HashMap<String, String> conf;
-	
-	public Config(String filePath) throws FileNotFoundException, IOException
-	{
-	conf=new HashMap();
-	File file=new File(filePath);
-	BufferedReader br=new BufferedReader(new FileReader(file));
-	String[] vals;
-	String line=br.readLine();
-	
-	while (line!=null)
-	{
-	if (!line.startsWith("#"))
-	{
-	vals=line.toLowerCase().split("=");
-	conf.put(vals[0], vals[1]);
+
+	public Config(String filePath) throws FileNotFoundException, IOException {
+		conf = new HashMap();
+		File file = new File(filePath);
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String[] vals;
+		String line = br.readLine();
+
+		while (line != null) {
+			if (!line.startsWith("#")) {
+				vals = line.toLowerCase().split("=");
+				conf.put(vals[0], vals[1]);
+			}
+			line = br.readLine();
+		}
+
 	}
-	line=br.readLine();
+
+	public String get(String key) {
+		return conf.get(key.toLowerCase());
 	}
-	 
-	}
-	 
-	public String get(String key)
-	{
-	return conf.get(key.toLowerCase());
-	}	
 }

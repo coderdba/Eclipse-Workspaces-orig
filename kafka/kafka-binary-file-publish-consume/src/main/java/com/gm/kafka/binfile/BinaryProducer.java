@@ -47,7 +47,7 @@ public class BinaryProducer {
 		path = FileSystems.getDefault().getPath(watchDir);
 	}
 
-	// Takes a whole binary file content and splits it into 10k chunks
+	// Takes a whole binary file content and splits it into 10k chunks 
 	private ArrayList splitFile(String name, byte[] datum) {
 		int i, l = datum.length;
 		int block = 10240;

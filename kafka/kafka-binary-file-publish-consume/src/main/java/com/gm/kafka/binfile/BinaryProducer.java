@@ -98,7 +98,9 @@ public class BinaryProducer {
 					Thread.sleep(500);
 
 					fileData = Files
-							.readAllBytes(FileSystems.getDefault().getPath(watchDir + File.separator + fileName));
+							.readAllBytes(FileSystems.getDefault()
+						    .getPath(watchDir + File.separator + fileName));
+					
 					allChunks = splitFile(fileName, fileData);
 
 					for (int i = 0; i < allChunks.size(); i++) {
